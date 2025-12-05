@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avooli Music </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-music"></i>
+                <span>Avooli Music</span>
+            </div>
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search songs, albums, artists, playlists...">
+            </div>
+            <div class="nav-links">
+                <a href="#" class="active" data-section="home"><i class="fas fa-home"></i> Home</a>
+                <a href="#" data-section="favorites"><i class="fas fa-heart"></i> Favorites</a>
+                <a href="#" data-section="profile"><i class="fas fa-user"></i> Profile</a>
+            </div>
+        </header>
+
+        <!-- Home Section -->
+        <div id="homeSection">
+            <h2 class="section-title">Featured Albums</h2>
+            <div class="albums-grid" id="albumsGrid">
+                <!-- Albums will be loaded here -->
+            </div>
+
+            <h2 class="section-title">Popular Artists</h2>
+            <div class="artists-grid" id="artistsGrid">
+                <!-- Artists will be loaded here -->
+            </div>
+
+            <div class="playlist">
+                <h2 class="section-title">Now Playing</h2>
+                <div class="playlist-items" id="playlistItems">
+                    <!-- Playlist items will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Favorites Section -->
+        <div id="favoritesSection" class="hidden">
+            <h2 class="section-title">Your Favorites</h2>
+            <div class="favorites-grid" id="favoritesGrid">
+                <!-- Favorites will be loaded here -->
+            </div>
+            
+            <div class="playlist">
+                <h2 class="section-title">Favorite Tracks</h2>
+                <div class="playlist-items" id="favoriteTracks">
+                    <!-- Favorite tracks will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Section -->
+        <div id="profileSection" class="hidden">
+            <div class="profile-container">
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="profile-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="profile-name">Avooli Ajooli</div>
+                        <div class="profile-location">Shiraz, Fars</div>
+                    </div>
+                    
+                    <div class="profile-stats">
+                        <div class="stat">
+                            <div class="stat-value">124</div>
+                            <div class="stat-label">Albums</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">56</div>
+                            <div class="stat-label">Artists</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">892</div>
+                            <div class="stat-label">Tracks</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="profile-content">
+                    <div class="profile-section">
+                        <h3><i class="fas fa-music"></i> Recent Activity</h3>
+                        <div class="favorite-list">
+                            <div class="favorite-item">
+                                <img src="https://placehold.co/40x40/667eea/white?text=R" alt="Recent">
+                                <div class="favorite-info">
+                                    <h4>Midnight Drive</h4>
+                                    <p>Luna Echo • 2 hours ago</p>
+                                </div>
+                            </div>
+                            <div class="favorite-item">
+                                <img src="https://placehold.co/40x40/764ba2/white?text=D" alt="Recent">
+                                <div class="favorite-info">
+                                    <h4>Digital Rain</h4>
+                                    <p>Neon Pulse • 5 hours ago</p>
+                                </div>
+                            </div>
+                            <div class="favorite-item">
+                                <img src="https://placehold.co/40x40/f093fb/white?text=O" alt="Recent">
+                                <div class="favorite-info">
+                                    <h4>Deep Blue</h4>
+                                    <p>Azure Skies • Yesterday</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-section">
+                        <h3><i class="fas fa-crown"></i> Top Artists</h3>
+                        <div class="favorite-list">
+                            <div class="favorite-item">
+                                <img src="https://placehold.co/40x40/667eea/white?text=L" alt="Top">
+                                <div class="favorite-info">
+                                    <h4>Luna Echo</h4>
+                                    <p>24 plays this month</p>
+                                </div>
+                            </div>
+                            <div class="favorite-item">
+                                <img src="https://placehold.co/40x40/764ba2/white?text=N" alt="Top">
+                                <div class="favorite-info">
+                                    <h4>Neon Pulse</h4>
+                                    <p>18 plays this month</p>
+                                </div>
+                            </div>
+                            <div class="favorite-item">
+                                <img src="https://placehold.co/40x40/f093fb/white?text=A" alt="Top">
+                                <div class="favorite-info">
+                                    <h4>Azure Skies</h4>
+                                    <p>15 plays this month</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="player-container">
+        <div class="current-track">
+            <img id="currentTrackImage" src="https://placehold.co/65x65/667eea/white?text=A" alt="Current Track">
+            <div class="track-info">
+                <h4 id="currentTrackTitle">Welcome to Avooli Music</h4>
+                <p id="currentTrackArtist">Your personal music experience</p>
+            </div>
+        </div>
+
+        <div class="player-controls">
+            <button class="control-btn" id="prevBtn">
+                <i class="fas fa-step-backward"></i>
+            </button>
+            <button class="control-btn play-btn" id="playBtn">
+                <i class="fas fa-play"></i>
+            </button>
+            <button class="control-btn" id="nextBtn">
+                <i class="fas fa-step-forward"></i>
+            </button>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar">
+            </div>
+            <div class="time-info">
+                <span id="currentTime">0:00</span>
+                <span id="duration">0:00</span>
+            </div>
+        </div>
+
+        <div class="volume-container">
+            <i class="fas fa-volume-up"></i>
+            <div class="volume-slider" id="volumeSlider">
+            </div>
+        </div>
+    </div>
+
+   <script src="main.js"></script>
+</body>
+</html>
+
