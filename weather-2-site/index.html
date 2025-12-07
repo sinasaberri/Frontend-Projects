@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weatherly - Modern Weather App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <i class="fas fa-cloud-sun"></i>
+                <span>Weatherly</span>
+            </div>
+            <div class="controls">
+                <div class="toggle-container">
+                    <input type="checkbox" id="theme-toggle">
+                    <label for="theme-toggle" class="toggle-slider"></label>
+                </div>
+                <div class="toggle-container">
+                    <input type="checkbox" id="unit-toggle">
+                    <label for="unit-toggle" class="toggle-slider"></label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="search-container">
+            <form class="search-form" id="search-form">
+                <input type="text" class="search-input" id="search-input" placeholder="Search for a city..." autocomplete="off">
+                <button type="submit" class="search-btn">Search</button>
+            </form>
+            <button class="location-btn" id="location-btn">
+                <i class="fas fa-location-arrow"></i> Use Current Location
+            </button>
+        </div>
+        
+        <div class="weather-container">
+            <div class="loading" id="loading">
+                <div class="loading-spinner"></div>
+                <p>Loading weather data...</p>
+            </div>
+            
+            <div class="error" id="error" style="display: none;">
+                <i class="fas fa-exclamation-triangle error-icon"></i>
+                <h3>Oops! Something went wrong</h3>
+                <p id="error-message">Could not find weather data for this location. Please try again.</p>
+            </div>
+            
+            <div class="weather-card" id="weather-card" style="display: none;">
+                <div class="current-weather">
+                    <div class="weather-info">
+                        <h2 class="city-name" id="city-name">New York</h2>
+                        <p class="weather-desc" id="weather-desc">Partly Cloudy</p>
+                        <div class="temperature">
+                            <span class="temp-value" id="temp-value">24</span>
+                            <span class="temp-unit" id="temp-unit">°C</span>
+                        </div>
+                    </div>
+                    <div class="weather-icon">
+                        <i class="fas fa-cloud-sun" id="weather-icon"></i>
+                    </div>
+                </div>
+                
+                <div class="weather-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Feels Like</div>
+                        <div class="detail-value" id="feels-like">26°C</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Humidity</div>
+                        <div class="detail-value" id="humidity">65%</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Wind</div>
+                        <div class="detail-value" id="wind">12 km/h</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Pressure</div>
+                        <div class="detail-value" id="pressure">1013 hPa</div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="forecast-title">5-Day Forecast</h3>
+            <div class="forecast-container" id="forecast-container">
+                <!-- Forecast items will be generated here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        
+        const API_KEY = '316da2d9aa95c07ceab0a28792420bbc'; 
+    </script>
+
+    <script src="main.js"></script>
+</body>
+</html>
+
