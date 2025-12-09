@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizMaster - Modern Quiz App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+       
+</head>
+<body>
+    <div class="container">
+        <!-- Start Screen -->
+        <div id="startScreen" class="screen active">
+            <div class="card">
+                <div class="header">
+                    <div class="logo">
+                        <i class="fas fa-brain"></i>
+                        QuizMaster
+                    </div>
+                    <div class="theme-toggle" id="themeToggle"></div>
+                </div>
+                
+                <div class="hero">
+                    <h1>Challenge Your Knowledge</h1>
+                    <p>Test your skills with our engaging quiz. Choose your category, difficulty, and start your journey to becoming a quiz master!</p>
+                    <button class="btn btn-primary" id="startBtn">
+                        <i class="fas fa-play"></i> Start Quiz
+                    </button>
+                </div>
+                
+                <div class="settings-link">
+                    <button class="btn btn-outline" id="settingsBtn">
+                        <i class="fas fa-cog"></i> Settings
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Settings Screen -->
+        <div id="settingsScreen" class="screen">
+            <div class="card">
+                <div class="header">
+                    <h2>Quiz Settings</h2>
+                    <button class="btn btn-small" id="backToStart">
+                        <i class="fas fa-arrow-left"></i> Back
+                    </button>
+                </div>
+                
+                <div class="settings-grid">
+                    <div class="setting-group">
+                        <label for="category">Category</label>
+                        <select id="category">
+                            <option value="all">All Categories</option>
+                            <option value="tech">Technology</option>
+                            <option value="movies">Movies</option>
+                            <option value="math">Mathematics</option>
+                            <option value="geography">Geography</option>
+                        </select>
+                    </div>
+                    
+                    <div class="setting-group">
+                        <label for="difficulty">Difficulty</label>
+                        <select id="difficulty">
+                            <option value="easy">Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                    </div>
+                    
+                    <div class="setting-group">
+                        <label for="numQuestions">Number of Questions</label>
+                        <select id="numQuestions">
+                            <option value="5">5 Questions</option>
+                            <option value="10" selected>10 Questions</option>
+                            <option value="15">15 Questions</option>
+                            <option value="20">20 Questions</option>
+                        </select>
+                    </div>
+                    
+                    <div class="setting-group">
+                        <label for="timerToggle">Enable Timer</label>
+                        <select id="timerToggle">
+                            <option value="true" selected>Yes</option>
+                            <option value="false">No</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button class="btn btn-primary" id="saveSettings">
+                    <i class="fas fa-save"></i> Save Settings
+                </button>
+            </div>
+        </div>
+        
+        <!-- Quiz Screen -->
+        <div id="quizScreen" class="screen">
+            <div class="card">
+                <div class="quiz-header">
+                    <div class="question-count">Question <span id="currentQuestion">1</span> of <span id="totalQuestions">10</span></div>
+                    <div class="timer-container">
+                        <div class="timer-circle">
+                            <div class="timer-value" id="timerValue">15</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                
+                <h3 class="question-text" id="questionText">What is the capital of France?</h3>
+                
+                <div class="options-container" id="optionsContainer">
+                    <!-- Options will be generated here -->
+                </div>
+                
+                <div class="quiz-footer">
+                    <button class="btn btn-outline" id="prevBtn">
+                        <i class="fas fa-arrow-left"></i> Previous
+                    </button>
+                    <button class="btn btn-primary" id="nextBtn">
+                        Next <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Results Screen -->
+        <div id="resultsScreen" class="screen">
+            <div class="card">
+                <div class="header">
+                    <h2>Quiz Results</h2>
+                    <button class="btn btn-small" id="backToHome">
+                        <i class="fas fa-home"></i> Home
+                    </button>
+                </div>
+                
+                <div class="results-summary">
+                    <div class="score" id="finalScore">0%</div>
+                    <div class="result-message" id="resultMessage">Great job!</div>
+                </div>
+                
+                <div class="stats">
+                    <div class="stat-card">
+                        <div class="stat-label">Correct</div>
+                        <div class="stat-value" id="correctAnswers">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Incorrect</div>
+                        <div class="stat-value" id="incorrectAnswers">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Total Time</div>
+                        <div class="stat-value" id="totalTime">0s</div>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <canvas id="resultsChart"></canvas>
+                </div>
+                
+                <div class="buttons">
+                    <button class="btn btn-primary" id="retryBtn">
+                        <i class="fas fa-redo"></i> Retry Quiz
+                    </button>
+                    <button class="btn btn-outline" id="settingsFromResults">
+                        <i class="fas fa-cog"></i> Change Settings
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
