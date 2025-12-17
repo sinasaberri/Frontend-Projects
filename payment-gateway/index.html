@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Dark Mode Toggle -->
+    <div class="dark-mode-toggle" id="darkModeToggle">
+        <i class="fas fa-sun"></i>
+        <i class="fas fa-moon" style="display: none;"></i>
+        <!-- <span>Dark Mode</span> -->
+    </div>
+
+    <!-- Success Overlay -->
+    <div class="success-overlay" id="successOverlay">
+        <div class="success-animation">
+            <div class="success-circle"></div>
+            <svg class="success-check" viewBox="0 0 120 120">
+                <path d="M24,60 L48,84 L96,36" fill="none" stroke="white" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+        <div class="success-message-text">Payment Successful!</div>
+        <div class="success-subtext">Your transaction has been completed securely. Thank you for your support!</div>
+        <button class="continue-button" id="continueButton">Continue</button>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <!-- <div class="header-badge">
+                <i class="fas fa-shield-alt"></i>
+                Premium Security
+            </div> -->
+            <h1>SSB Payment Gateway</h1>
+            <p>Complete your transaction with bank-level encryption and seamless experience</p>
+        </div>
+
+        <!-- Mode Toggle -->
+        <div class="mode-toggle">
+            <div class="mode-option active" data-mode="purchase">
+                <i class="fas fa-shopping-cart"></i> Purchase
+            </div>
+            <div class="mode-option" data-mode="donation">
+                <i class="fas fa-hand-holding-heart"></i> Donation
+            </div>
+        </div>
+
+        <div class="security-indicators">
+            <div class="security-item">
+                <i class="fas fa-lock"></i>
+                <span>256-bit SSL Encryption</span>
+            </div>
+            <div class="security-item">
+                <i class="fas fa-fingerprint"></i>
+                <span>3D Secure Authentication</span>
+            </div>
+            <div class="security-item">
+                <i class="fas fa-shield-alt"></i>
+                <span>PCI DSS Compliant</span>
+            </div>
+        </div>
+
+        <!-- Minimal Card -->
+        <div class="minimal-card" id="minimalCard">
+            <div class="card-chip">SHEBA</div>
+            <div class="card-logo">SSB</div>
+            <div class="card-number" id="previewCardNumber">•••• •••• •••• ••••</div>
+            <div class="card-info">
+                <div class="card-name" id="previewCardName">CARDHOLDER NAME</div>
+                <div class="card-expiry" id="previewCardExpiry">MM/YY</div>
+            </div>
+        </div>
+
+        <div class="payment-layout">
+            <!-- Purchase Mode -->
+            <div class="purchase-mode">
+                <!-- Purchase Options -->
+                <div class="purchase-options">
+                    <div class="purchase-option active" data-amount="29.99">
+                        <div class="option-info">
+                            <h3>Basic Plan</h3>
+                            <p>Perfect for individuals</p>
+                        </div>
+                        <div class="option-price">$29.99</div>
+                    </div>
+                    
+                    <div class="purchase-option" data-amount="59.99">
+                        <div class="option-info">
+                            <h3>Standard Plan</h3>
+                            <p>Great for small teams</p>
+                        </div>
+                        <div class="option-price">$59.99</div>
+                    </div>
+                    
+                    <div class="purchase-option" data-amount="99.99">
+                        <div class="option-info">
+                            <h3>Premium Plan</h3>
+                            <p>Best value for businesses</p>
+                        </div>
+                        <div class="option-price">$99.99</div>
+                    </div>
+                </div>
+                
+                <!-- Custom Amount -->
+                <div class="custom-amount" id="customAmount">
+                    <h3>Custom Amount</h3>
+                    <div class="amount-input">
+                        <span>$</span>
+                        <input type="number" id="customAmountInput" min="1" step="0.01" value="50.00">
+                    </div>
+                </div>
+                
+                <!-- Discount Section -->
+                <div class="discount-section">
+                    <div class="discount-header">
+                        <h3>Apply Discount Code</h3>
+                        <p>Use code "DISCOUNT30" for 30% off!</p>
+                    </div>
+                    
+                    <div class="discount-input">
+                        <input type="text" id="discountCode" class="form-control" placeholder="Enter discount code">
+                        <button class="apply-discount" id="applyDiscount">
+                            <i class="fas fa-gift"></i> Apply
+                        </button>
+                    </div>
+                    
+                    <div class="discount-info" id="discountInfo">
+                        <h4>🎉 Discount Applied!</h4>
+                        <p>You saved <span id="savedAmount">$30.00</span> with your discount code</p>
+                    </div>
+                </div>
+                
+                <!-- Total Summary -->
+                <div class="total-summary">
+                    <h3>Order Summary</h3>
+                    <div class="summary-item">
+                        <span>Selected Plan</span>
+                        <span id="planPrice">$29.99</span>
+                    </div>
+                    <div class="summary-item discount" id="discountSummary" style="display: none;">
+                        <span>Discount (30%)</span>
+                        <span id="discountValue">-$9.00</span>
+                    </div>
+                    <div class="summary-item total">
+                        <span>Total</span>
+                        <span id="totalPrice">$29.99</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Donation Mode -->
+            <div class="donation-mode" id="donationMode">
+                <div class="donation-header">
+                    <h2>Make a Donation</h2>
+                    <p>Support our cause with any amount you'd like to contribute</p>
+                </div>
+                
+                <div class="donation-amount">
+                    <h3>Enter Your Donation Amount</h3>
+                    <div class="donation-input">
+                        <span>$</span>
+                        <input type="number" id="donationAmount" min="1" step="0.01" value="25.00">
+                    </div>
+                    
+                    <div class="donation-suggestions">
+                        <div class="donation-suggestion" data-amount="10">$10</div>
+                        <div class="donation-suggestion" data-amount="25">$25</div>
+                        <div class="donation-suggestion" data-amount="50">$50</div>
+                        <div class="donation-suggestion" data-amount="100">$100</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Form -->
+            <div class="payment-form">
+                <!-- Account Section -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3 class="section-title">Account Information</h3>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+                        <input type="email" id="email" class="form-control" placeholder="sinasaberi2006@gmsil.com">
+                        <div class="error-message" id="emailError">Please enter a valid email address</div>
+                        <div class="success-message" id="emailSuccess">Valid email address</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password"><i class="fas fa-key"></i> Password</label>
+                        <div class="input-container">
+                            <input type="password" id="password" class="form-control" placeholder="••••••••">
+                            <button type="button" class="toggle-password" id="togglePassword">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="error-message" id="passwordError">Password must be at least 8 characters with uppercase, lowercase, and numbers</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="secondPassword"><i class="fas fa-lock"></i> Second Password (Security)</label>
+                        <div class="input-container">
+                            <input type="password" id="secondPassword" class="form-control" placeholder="••••••••">
+                            <button type="button" class="toggle-password" id="toggleSecondPassword">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="error-message" id="secondPasswordError">Second password must match your security password</div>
+                    </div>
+                </div>
+
+                <!-- Payment Section -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <h3 class="section-title">Payment Details</h3>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cardName"><i class="fas fa-signature"></i> Cardholder Name</label>
+                        <input type="text" id="cardName" class="form-control" placeholder="Sepehr Yazdani">
+                        <div class="error-message" id="nameError">Please enter a valid name (letters and spaces only)</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cardNumber"><i class="fas fa-credit-card"></i> Card Number</label>
+                        <input type="text" id="cardNumber" class="form-control" placeholder="6037 9915 3179 0222">
+                        <div class="error-message" id="numberError">Please enter a valid 16-digit card number</div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="expiryDate"><i class="far fa-calendar"></i> Expiry Date</label>
+                            <input type="text" id="expiryDate" class="form-control" placeholder="MM/YY">
+                            <div class="error-message" id="expiryError">Please enter a valid expiry date (MM/YY)</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cvv"><i class="fas fa-shield-alt"></i> CVV2</label>
+                            <input type="text" id="cvv" class="form-control" placeholder="1234">
+                            <div class="error-message" id="cvvError">Please enter a  at least valid 3-digit CVV2</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security Section -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="section-title">Security Verification</h3>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="captcha"><i class="fas fa-robot"></i> Captcha Verification</label>
+                        <div class="captcha-container">
+                            <div class="captcha-display" id="captchaDisplay">AB3X9</div>
+                            <button type="button" class="captcha-refresh" id="captchaRefresh">
+                                <i class="fas fa-sync-alt"></i> Refresh
+                            </button>
+                        </div>
+                        <input type="text" id="captcha" class="form-control" placeholder="Enter the code above">
+                        <div class="error-message" id="captchaError">Please enter the correct captcha code</div>
+                    </div>
+                </div>
+
+                <button class="pay-button" id="payButton">
+                    <span><i class="fas fa-lock"></i> Complete Payment - <span id="payButtonAmount">$29.99</span></span>
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
+
