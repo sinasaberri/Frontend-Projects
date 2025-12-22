@@ -26,14 +26,15 @@ Each project is independent and can be run separately.
 ## Projects Showcase
 
 | Preview | Project Name | Live Demo | Source Code |
+|--------|-------------|-----------|-------------|
+| 🎵 | **musicplayer-site** | 🔗 [Live Demo](https://sinasaberri.github.io/Frontend-Projects/musicplayer-site) | 📂 [Code](https://github.com/sinasaberri/Frontend-Projects/tree/main/musicplayer-site) |
+| 🌦 | **weather-2-site** | 🔗 [Live Demo](https://sinasaberri.github.io/Frontend-Projects/weather-2-site) | 📂 [Code](https://github.com/sinasaberri/Frontend-Projects/tree/main/weather-2-site) |
+| 🌩 | **weather-site** | 🔗 [Live Demo](https://sinasaberri.github.io/Frontend-Projects/weather-site) | 📂 [Code](https://github.com/sinasaberri/Frontend-Projects/tree/main/weather-site) |
+| 💳 | **payment-gateway** | 🔗 [Live Demo](https://sinasaberri.github.io/Frontend-Projects/payment-gateway) | 📂 [Code](https://github.com/sinasaberri/Frontend-Projects/tree/main/payment-gateway) |
+| 📝 | **quiz-site** | 🔗 [Live Demo](https://sinasaberri.github.io/Frontend-Projects/quiz-site) | 📂 [Code](https://github.com/sinasaberri/Frontend-Projects/tree/main/quiz-site) |
+| 🗓 | **todo-site** | 🔗 [Live Demo](https://sinasaberri.github.io/Frontend-Projects/todo-site) | 📂 [Code](https://github.com/sinasaberri/Frontend-Projects/tree/main/todo-site) |
+| 👟 | **product-card** | 🔗 [Live Demo](https://sinasaberri.github.io/Frontend-Projects/product-card) | 📂 [Code](https://github.com/sinasaberri/Frontend-Projects/tree/main/product-card) |
 
-| 🎵 | **musicplayer-site** |🔗 [Live Demo](https://sinasaberri.github.io/Frontend-Projects/musicplayer-site) | 📂 [Code](https://github.com/sinasaberri/Frontend-Projects/tree/main/musicplayer-site) |
-| 🌦 | **weather-2-site** |🔗 [Live Demo](https://sinasaberri.github.io/Frontend-Projects/weather-2-site) | 📂 [Code](https://github.com/sinasaberri/Frontend-Projects/tree/main/weather-2-site) |
-| 🌩 | **weather-site** |🔗 [Live Demo](https://sinasaberri.github.io/Frontend-Projects/weather-site) | 📂 [Code](https://github.com/sinasaberri/Frontend-Projects/tree/main/weather-site) |
-| 💳 | **payment-gateway** |🔗 [Live Demo](https://sinasaberri.github.io/Frontend-Projects/payment-gateway) | 📂 [Code](https://github.com/sinasaberri/Frontend-Projects/tree/main/payment-gateway) |
-| 📝 | **quiz-site** |🔗 [Live Demo](https://sinasaberri.github.io/Frontend-Projects/quiz-site) | 📂 [Code](https://github.com/sinasaberri/Frontend-Projects/tree/main/quiz-site) |
-| 🗓 | **todo-site** |🔗 [Live Demo](https://sinasaberri.github.io/Frontend-Projects/todo-site) | 📂 [Code](https://github.com/sinasaberri/Frontend-Projects/tree/main/todo-site) |
-| 👟 | **product-card** |🔗 [Live Demo](https://sinasaberri.github.io/Frontend-Projects/product-card) | 📂 [Code](https://github.com/sinasaberri/Frontend-Projects/tree/main/product-card) |
 
 
 ---
